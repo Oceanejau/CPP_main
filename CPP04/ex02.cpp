@@ -6,12 +6,10 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-
-
 int main(void)
 {
-	const Animal* a = new Animal();
-	const Animal* b( a );
+	/*const AAnimal* a = new AAnimal();
+	const AAnimal* b( a );
 	std::cout << "A : " << a->getType() << " " << std::endl;
 	std::cout << "A sound : " << std::endl;
 	a->makeSound();
@@ -19,8 +17,14 @@ int main(void)
 	std::cout << "B sound : " << std::endl;
 	b->makeSound();
 	delete(a);
-	const Animal* c = new Cat();
-	const Animal* d( c );
+	std::cout << "-- test constructeur copie AAnimal --" << std::endl;
+	AAnimal ba;
+	{
+		AAnimal tp = ba;
+	}
+	std::cout << "-- fin test constructeur copie AAnimal --" << std::endl;*/
+	const AAnimal* c = new Cat();
+	const AAnimal* d( c );
 	std::cout << "C : " << c->getType() << " " << std::endl;
 	std::cout << "C sound : " << std::endl;
 	c->makeSound();
@@ -28,8 +32,14 @@ int main(void)
 	std::cout << "D sound : " << std::endl;
 	d->makeSound();
 	delete(c);
-	const Animal* e = new Dog();
-	const Animal* f( e );
+	std::cout << "-- test constructeur copie Cat --" << std::endl;
+	Cat sic;
+	{
+		Cat mp = sic;
+	}
+	std::cout << "-- fin test constructeur copie Cat --" << std::endl;
+	const AAnimal* e = new Dog();
+	const AAnimal* f( e );
 	std::cout << "E : " << e->getType() << " " << std::endl;
 	std::cout << "E sound : " << std::endl;
 	e->makeSound();
@@ -37,11 +47,16 @@ int main(void)
 	std::cout << "F sound : " << std::endl;
 	f->makeSound();
 	delete(e);
-	std::cout << "-- fin test constructeur copie --" << std::endl;
-	
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	std::cout << "-- test constructeur copie Dog --" << std::endl;
+	Dog basic;
+	{
+		Dog tmp = basic;
+	}
+	std::cout << "-- fin test constructeur copie Dog --" << std::endl;
+
+	//const AAnimal* meta = new AAnimal();
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
 
 	std::cout << "Dog : " << j->getType() << " " << std::endl;
 	std::cout << "Cat : " << i->getType() << " " << std::endl;
@@ -49,42 +64,64 @@ int main(void)
 	i->makeSound(); 
 	std::cout << "Dog : " << std::endl;
 	j->makeSound();
-	std::cout << "Unknown animal : " << std::endl;
-	meta->makeSound();
+	std::cout << "Unknown AAnimal : " << std::endl;
+	//meta->makeSound();
 	delete(i);
 	delete(j);
-	delete(meta);
+	//delete(meta);
 	const WrongAnimal* beta = new WrongAnimal();
 	const WrongAnimal* x = new WrongCat();
 
 	std::cout << "WrongCat : " << std::endl;
 	x->makeSound();
-	std::cout << "Wrong animal : " << std::endl;
+	std::cout << "Wrong AAnimal : " << std::endl;
 	beta->makeSound();
 	delete(x);
 	delete(beta);
 
+	std::cout << "-- test brain --" << std::endl;
 
-	//ex01
+	std::string idea1 = "Fetch the ball";
+	std::string idea2 = "Eat a bone";
+	std::string idea3 = "Chase the mailman";
+	std::string idea4 = "Take a nap";
 
-	//const Animal* tab = new Animal[4];
+	std::string idea5 = "Climb a tree";
+	std::string idea6 = "Chase a mouse";
+	std::string idea7 = "Smell a catnip";
+	std::string idea8 = "Take a nap";
+	Cat	cat(4);
+	cat.setIdea(idea5);
+	cat.setIdea(idea6);
+	cat.setIdea(idea7);
+	cat.setIdea(idea8);
+	cat.setIdea(idea1);
+	cat.printBrain();
+	Cat	cot = cat;
+	cot.printBrain();
 
-	/*Animal[0] = Dog();
-	Animal[1] = Dog();
-	Animal[2] = Cat();
-	Animal[3] = Cat();*/
+	Dog	dog(6);
+	dog.setIdea(idea1);
+	dog.setIdea(idea2);
+	dog.setIdea(idea3);
+	dog.setIdea(idea4);
+	dog.setIdea(idea5);
+	dog.printBrain();
+	Dog	dag = dog;
+	dag.printBrain();
 
-	Animal*	tab[4];
+	std::cout << "-- test allocation tableau AAnimal Cat&Dog --" << std::endl;
+
+	AAnimal*	tab[4];
 	tab[0] = new Dog();
 	tab[1] = new Dog();
 	tab[2] = new Cat();
 	tab[3] = new Cat();
-
-	delete(tab[0]);
+ 	delete(tab[0]);
 	delete(tab[1]);
 	delete(tab[2]);
 	delete(tab[3]);
 
-
 	return (0);
 }
+
