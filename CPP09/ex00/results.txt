@@ -1,0 +1,93 @@
+[2J[HError: Bad input => date
+Error: Bad input => 
+Error: Bad input =>  -- Letters --
+Error: Bad input => abc
+Error: Bad input => 2012-0f1-11 
+Error: Bad input => 2012-01f-11 
+Error: Bad input => 2012f-01-11 
+Error: Bad input => 2012-01-11f 
+Error: Bad input => 2h8. 
+Error: Bad input => 0f. 
+Error: Bad input => 2012-01-11 f 0
+Error: Bad input => 
+Error: Bad input =>  -- Space --
+Error: Bad input =>  2012-01-01 
+Error: Bad input => 2010-01-01
+2010-01-01 => 1.0 = 0
+2010-01-01  => 1.0 = 0
+2010-01-01 => 1.0 = 0
+Error: Bad input => 1 . 
+Error: Bad input => 
+Error: Bad input =>  -- Limits --
+Error: too large a number. 
+Error: too large a number. 
+2012-01-11 => 0.0 = 0
+Error: not a positive number. 
+Error: too large a number. 
+Error: Bad input => 
+Error: Bad input =>  -- Missing stuff --
+Error: Bad input => 2012-01-11 
+Error: Bad input => 
+Error: Bad input => 2010-1-01 
+Error: Bad input => 2010-01-1 
+Error: Bad input => 201-01-1 
+Error: Bad input => 
+Error: Bad input =>  -- Time Limits --
+Error: Bad input => 2000-01-01 
+Error: Bad input => 2225-01-01 
+Error: Bad input => 2012-13-01 
+Error: Bad input => 2012-01-32 
+Error: Bad input => 
+Error: Bad input => 2022-02-29 
+Error: Bad input => 2021-02-29 
+Error: Bad input => 2020-02-30 
+Error: Bad input => 2019-02-29 
+Error: Bad input => 2018-02-29 
+Error: Bad input => 2017-02-29 
+Error: Bad input => 2016-02-30 
+Error: Bad input => 2015-02-29 
+Error: Bad input => 2014-02-29 
+Error: Bad input => 2013-02-29 
+Error: Bad input => 2012-02-30 
+Error: Bad input => 2011-02-29 
+Error: Bad input => 2010-02-29 
+Error: Bad input => 2009-02-29 
+Error: Bad input => 
+Error: Bad input => 2010-01-32 
+Error: Bad input => 2010-03-32 
+Error: Bad input => 2010-04-31 
+Error: Bad input => 2010-05-32 
+Error: Bad input => 2010-06-31 
+Error: Bad input => 2010-07-32 
+Error: Bad input => 2010-08-32 
+Error: Bad input => 2010-09-31 
+Error: Bad input => 2010-10-32 
+Error: Bad input => 2010-11-31 
+Error: Bad input => 2010-12-32 
+Error: Bad input => 
+Error: Bad input => 2010-01-00 
+Error: Bad input => 2010-02-00 
+Error: Bad input => 2010-03-00 
+Error: Bad input => 2010-04-00 
+Error: Bad input => 2010-05-00 
+Error: Bad input => 2010-06-00 
+Error: Bad input => 2010-07-00 
+Error: Bad input => 2010-08-00 
+Error: Bad input => 2010-09-00 
+Error: Bad input => 2010-10-00 
+Error: Bad input => 2010-11-00 
+Error: Bad input => 2010-12-00 
+Error: Bad input => 
+Error: Bad input =>  -- Should pass --
+Error: Bad input => 2020-02-29 
+Error: Bad input => 2016-02-29 
+Error: Bad input => 2012-02-29 
+2011-01-03 => 3.0 = 0.9
+2015-01-03 => 2.0 = 629.62
+2011-01-03 => 1.0 = 0.3
+2011-01-03 => 1.2 = 0.36
+2011-01-09 => 1.0 = 0.32
+2012-01-11 => 1.0 = 7.1
+2012-01-25 => 48.0 = 310.56
+2011-01-02 => 10.0 = 3
+2011-01-02 => 1000.0 = 300

@@ -1,0 +1,66 @@
+
+// programme_de_test.cpp
+
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <cstdlib>
+
+int main() {
+    // Entrées de test
+    struct Test {
+        int a;
+        int b;
+        int expectedSum;
+    };
+
+    Test tests[] = {
+        {2, 3, 5},
+        {10, -5, 5},
+        {-8, 6, -2}
+    };
+
+    // Exécuter les tests
+    for (const auto& test : tests) {
+        // Construire la commande pour exécuter le programme à tester
+        std::ostringstream oss;
+        oss << "./programme_a_tester.exe"; // Changez ".exe" pour le format de votre système
+        oss << " " << test.a << " " << test.b;
+
+        // Exécuter le programme et récupérer la sortie
+        std::string command = oss.str();
+        std::cout << "Commande : " << command << std::endl;
+        std::string output = "";
+        FILE* pipe = popen(command.c_str(), "r");
+        if (pipe) {
+            char buffer[128];
+            while (!feof(pipe)) {
+                if (fgets(buffer, 128, pipe) != NULL) {
+                    output += buffer;
+                }
+            }
+            pclose(pipe);
+        }
+
+        // Comparer la sortie avec le résultat attendu
+        int actualSum = std::stoi(output);
+        if (actualSum == test.expectedSum) {
+            std::cout << "Test réussi pour " << test.a << " + " << test.b << std::endl;
+        } else {
+            std::cerr << "Échec du test pour " << test.a << " + " << test.b << std::endl;
+            std::cerr << "Attendu : " << test.expectedSum << ", reçu : " << actualSum << std::endl;
+        }
+    }
+
+    return 0;
+}
+
+
+
+./RPN "5 5 + 9 * 4 - 6 - 8 / 2 / 2 / 3 / 9 * 6 +  8 /"
+./RPN "5 9 - 9 * 4 + 7 -"
+./RPN " 1 0 /"
+./RPN " 1 2 /"
+./RPN "6 5 + * 6"
+./RPN "5 9 9 9 9 9 9 9 9 9 * * * * * * * * *"
+./RPN "9 9 * 9 + 5 * 2 * 9 * 9 * 9 9 9 9 * * * * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 * 9 *"
