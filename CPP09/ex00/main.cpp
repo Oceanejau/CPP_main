@@ -24,45 +24,115 @@ _NORMAL= $'\e[0m
 */
 int main(void)
 {
-    int count = 0;
-    std::ifstream file(FILE_1);
-
-    size_t pos;
     std::string line;
 
-
-    if (file.is_open())
+    std::ifstream file_1(FILE_1);
+    if (file_1.is_open())
     {
-        while (std::getline(file, line))
+        std::cout << "\033[1;38;5;226m\033[5m     --< Checking " << FILE_1 << " >-- \e[0m" << std::endl;
+        while (std::getline(file_1, line))
         {
-            if (count < ERROR_LINE)
+            if (line.find("\033[2J") != std::string::npos)
             {
-                pos = line.find("Error");
-                if (pos != std::string::npos)
-                    std::cout << "\033[1;32m You passed the test: \e[0m";
-                else
-                    std::cout << "\033[1;31m You failed the test: \e[0m";
+                line =  line.substr(line.find("\033[2J") + 7);
             }
-            std::cout << line << std::endl;
-            count++;
+            if (line.find(" -- ") != std::string::npos)
+            {
+                line = line.substr(line.find(" -- ") + 4);
+                std::cout << "\033[1;33m\033[5m     -- " << line << "\e[0m" << std::endl;
+            }
+            else if (line.find("Error") != std::string::npos)
+                std::cout << "\033[1;32m You passed the test: \e[0m" << line << std::endl;
+            else
+                    std::cout << "\033[1;31m You failed the test: \e[0m" << line << std::endl;
         }
-        file.close();
+        file_1.close();
     }
     else
     {
         std::cerr << "Failed to open " << FILE_1 << std::endl;
         return (1);
     }
-    if (count < ERROR_LINE)
+    std::ifstream file_2(FILE_2);
+    if (file_2.is_open())
     {
-        pos = line.find("Error");
-        if (pos != std::string::npos)
+        std::cout << "\033[1;38;5;226m\033[5m     --< Checking " << FILE_2 << " >-- \e[0m" << std::endl;
+        while (std::getline(file_2, line))
         {
-            std::cout << "\033[1;31m You failed the test: \e[0m";
+            if (line.find("\033[2J") != std::string::npos)
+            {
+                line =  line.substr(line.find("\033[2J") + 7);
+            }
+            if (line.find(" -- ") != std::string::npos)
+            {
+                line = line.substr(line.find(" -- ") + 4);
+                std::cout << "\033[1;33m\033[5m     -- " << line << "\e[0m" << std::endl;
+            }
+            else if (line.find("Error") != std::string::npos)
+                std::cout << "\033[1;31m You failed the test: \e[0m" << line << std::endl;
+            else
+                std::cout << "\033[1;32m You passed the test: \e[0m" << line << std::endl;
         }
-        else
-            std::cout << "\033[1;32m You passed the test: \e[0m";
-
+        file_2.close();
+    }
+    else
+    {
+        std::cerr << "Failed to open " << FILE_2 << std::endl;
+        return (1);
+    }
+    std::ifstream file_3(FILE_3);
+    if (file_3.is_open())
+    {
+        std::cout << "\033[1;38;5;226m\033[5m     --< Checking " << FILE_3 << " >-- \e[0m" << std::endl;
+        while (std::getline(file_3, line))
+        {
+            if (line.find("\033[2J") != std::string::npos)
+            {
+                line =  line.substr(line.find("\033[2J") + 7);
+            }
+            if (line.find(" -- ") != std::string::npos)
+            {
+                line = line.substr(line.find(" -- ") + 4);
+                std::cout << "\033[1;33m\033[5m     -- " << line << "\e[0m" << std::endl;
+            }
+            else if (line.find("Error") != std::string::npos)
+                std::cout << "\033[1;32m You passed the test: \e[0m" << line << std::endl;
+            else
+                std::cout << "\033[1;31m You failed the test: \e[0m" << line << std::endl;
+        }
+        file_3.close();
+    }
+    else
+    {
+        std::cerr << "Failed to open " << FILE_3 << std::endl;
+        return (1);
+    }
+    std::ifstream file_4(FILE_4);
+    if (file_4.is_open())
+    {
+        std::cout << "\033[1;38;5;226m\033[5m     --< Checking " << FILE_4 << " >-- \e[0m" << std::endl;
+        while (std::getline(file_4, line))
+        {
+            if (line.find("\033[2J") != std::string::npos)
+            {
+                line =  line.substr(line.find("\033[2J") + 7);
+            }
+            if (line.find(" -- ") != std::string::npos)
+            {
+                line = line.substr(line.find(" -- ") + 4);
+                std::cout << "\033[1;33m\033[5m     -- " << line << "\e[0m" << std::endl;
+            }
+            else if (line.find("Error") != std::string::npos)
+                std::cout << "\033[1;31m You failed the test: \e[0m" << line << std::endl;
+            else
+                std::cout << "\033[1;32m You passed the test: \e[0m" << line << std::endl;
+        }
+        file_4.close();
+    }
+    else
+    {
+        std::cerr << "Failed to open " << FILE_4 << std::endl;
+        return (1);
     }
     return (0);
 }

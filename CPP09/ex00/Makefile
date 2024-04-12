@@ -21,8 +21,8 @@ all: exec_tests $(NAME)
 $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) -I $(INCLUDES) $(OBJS) -o $(NAME)
 
-exec_tests: 
-		./script.sh
+exec_tests:
+	./script.sh
 .cpp.o:
 	$(CC) $(CFLAGS) -I $(INCLUDES) -c $^ -o $@
 
